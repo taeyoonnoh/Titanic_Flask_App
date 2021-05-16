@@ -6,6 +6,18 @@
 
 <br/>
 
+## 주요 기능
+* **CRUD**
+  * Create Passengers
+  * Add Passengers
+  * Edit Passengers
+  * Delete Passengers
+
+
+* **Data Visualization**
+
+<br/>
+
 ## Setups
 * Python Version : 3.7.10
 * `pip install -r requirements.txt`
