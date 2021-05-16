@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <h1>Titanic Info</h1>
+        <link rel="stylesheet" href="{{url_for('static',filename='css/styles.css')}}">
+        <script src="https://kit.fontawesome.com/4b14f84e59.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <ul>
+            <li><a class="active" href="/">Home</a></li>
+            <li><a href="/edit">Edit</a></li>
+            <li><a href="/visualization">Visualization</a></li>
+        </ul>
+        {%block firstpage%}
+        {%endblock%}
+        {%block secondpage%}
+        {%endblock%}
+        {% block edit_passenger %}
+        {% endblock %}
+        {% block visualization %}
+        {% endblock %}
+
+    </body>
+</html>

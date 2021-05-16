@@ -1,0 +1,161 @@
+{% extends "titanic.html" %}
+
+{% block secondpage%}
+
+<div class="big-container">
+    <header id="title">
+        <h1>Add Titanic Passenger</h1>
+    </header>
+    <section class="container">
+        <div>
+            <form id="survey-form" action='' method='post'>
+                <div class="row-tab">
+                    <div class="label-tab">
+                        <label>Name :</label>
+                    </div>
+                    <div class="input-tab">
+                        <input type="text" name="name">
+                    </div>
+                </div>
+                <div class="row-tab">
+                    <div class="label-tab">
+                        <label>Age :</label>
+                    </div>
+                    <div class="input-tab">
+                        <input type="number" name="age">
+                    </div>
+                </div>
+                <div class="row-tab">
+                    <div class="label-tab">
+                        <label>Gender :</label>
+                    </div>
+                    <div class="input-tab">
+                        <input type="radio" name="gender" value="male">
+                        <label>male</label>
+                        <input type="radio" name="gender" value="female">
+                        <label>female</label>
+                    </div>
+                </div>
+                <div class="row-tab">
+                    <div class="label-tab">
+                        <label>Fare :</label>
+                    </div>
+                    <div class="input-tab">
+                        <input type="number" name="fare">
+                    </div>
+                </div>
+                <div class="row-tab">
+                    <div class="label-tab">
+                        <label>Embarked :</label>
+                    </div>
+                    <div class="input-tab">
+                        <input type="radio" name="embarked" value="S">
+                        <label>S</label>
+                        <input type="radio" name="embarked" value="C">
+                        <label>C</label>
+                        <input type="radio" name="embarked" value="Q">
+                        <label>Q</label>
+                    </div>
+                </div>
+                <div class="row-tab">
+                    <div class="label-tab">
+                        <label>Pclass :</label>
+                    </div>
+                    <div class="input-tab">
+                        <input type="radio" name="pclass" value="1">
+                        <label>1</label>
+                        <input type="radio" name="pclass" value="2">
+                        <label>2</label>
+                        <input type="radio" name="pclass" value="3">
+                        <label>3</label>
+                    </div>
+                </div>
+                <div class="row-tab">
+                    <div class="label-tab">
+                        <label>Survived :</label>
+                    </div>
+                    <div class="input-tab">
+                        <input type="radio" name="survived" value="0">
+                        <label>0</label>
+                        <input type="radio" name="survived" value="1">
+                        <label>1</label>
+                    </div>
+                </div>
+                <button type="submit" value="submit" class="click">
+                    추가하기
+                </button>
+            </form>
+        </div>
+    </section>
+    <header id="title2">
+        <h1>Edit Titanic Passenger</h1>
+    </header>
+    <section class="container2">
+        <form action="" method="post">    
+            <div>
+                <select name="passengerid" style="height:30px; font-size:large;">
+                    <option value = "">Edit 할 Passenger ID 선택 </option>
+                        {% for i in info %}
+                            <option value = "{{i.passenger_id}}">{{i.passenger_id}}</option>
+                        {% endfor %}
+                </select>
+                <button type="submit" value="submit" class="click">
+                    수정하기
+                </button>
+            </div>
+        </form>
+    </section>
+        </section>
+    <header id="title3">
+        <h1>Delete Titanic Passenger</h1>
+    </header>
+    <section class="container3">
+        <form action="" method="post">    
+            <div>
+                <select name="passengerid_name" style="height:30px; font-size:large;">
+                    <option value = "">Delete 할 Passenger ID & Name 선택 </option>
+                        {% for i in info %}
+                            <option value = "{{i.passenger_id ~ " " ~ i.name}}">{{i.passenger_id}} & {{i.name}}</option>
+                        {% endfor %}
+                </select>
+                <button type="submit" value="submit" class="click">
+                    삭제하기
+                </button>
+            </div>
+        </form>
+    </section>
+</div>
+
+<h1>Added Passenger</h1>
+<div class="bigtable">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">PassengerID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Age</th>
+            <th scope="col">Fare</th>
+            <th scope="col">Embarked</th>
+            <th scope="col">Pclass</th>
+            <th scope="col">Survived</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for titanic in info %}
+                <tr>
+                    <td> {{titanic.passenger_id}} </td>
+                    <td>{{titanic.name}}</td>
+                    <td>{{titanic.gender}}</td>
+                    <td>{{titanic.age}}</td>
+                    <td>{{titanic.fare}}</td>
+                    <td>{{titanic.embarked}}</td>
+                    <td>{{titanic.pclass}}</td>
+                    <td>{{titanic.survived}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

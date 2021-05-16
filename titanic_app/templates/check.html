@@ -1,0 +1,76 @@
+{% extends "titanic.html" %}
+
+{% block edit_passenger %}
+<h1>Edited Passenger</h1>
+<div class="bigtable">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">PassengerID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Age</th>
+            <th scope="col">Fare</th>
+            <th scope="col">Embarked</th>
+            <th scope="col">Pclass</th>
+            <th scope="col">Survived</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td> {{check_titanic.passenger_id}} </td>
+                <td>{{check_titanic.name}}</td>
+                <td>{{check_titanic.gender}}</td>
+                <td>{{check_titanic.age}}</td>
+                <td>{{check_titanic.fare}}</td>
+                <td>{{check_titanic.embarked}}</td>
+                <td>{{check_titanic.pclass}}</td>
+                <td>{{check_titanic.survived}}</td>
+            </tr>
+            <tr>
+                <form action='' method="post">
+                    <td> {{check_titanic.passenger_id}} </td>
+                    <td><input type="text" name="name" value="{{check_titanic.name}}" style="text-align:center; height:20px; width:50%; font-size:large;"></td>
+                    <td>
+                        <select name="gender" style = "text-align:center; height:20px; width:55%; font-size:large;">
+                            <option value = "{{check_titanic.gender}}">{{check_titanic.gender}} </option>
+                            <option value = "{{diff_gender[0]}}">{{diff_gender[0]}}</option>
+                        </select>
+                    </td>
+                    <td><input type="text" name="age" value="{{check_titanic.age}}" style="text-align:center; height:20px; width:50%; font-size:large;"></td>
+                    <td><input type="text" name="fare" value="{{check_titanic.fare}}" style="text-align:center; height:20px; width:50%; font-size:large;"></td>
+                    <td>
+                        <select name="embarked" style = "text-align:center; height:20px; width:30%; font-size:large;">
+                            <option value = "{{check_titanic.embarked}}">{{check_titanic.embarked}} </option>
+                            <option value = "{{diff_embarked[0]}}">{{diff_embarked[0]}}</option>
+                            <option value = "{{diff_embarked[1]}}">{{diff_embarked[1]}}</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="pclass" style = "text-align:center; height:20px; width:30%; font-size:large;">
+                            <option value = "{{check_titanic.pclass}}">{{check_titanic.pclass}} </option>
+                            <option value = "{{diff_class[0]}}">{{diff_class[0]}}</option>
+                            <option value = "{{diff_class[1]}}">{{diff_class[1]}}</option>
+                        </select>
+                    </td>
+                    <td>
+                            <select name="survived" style = "text-align:center; height:20px; width:30%; font-size:large;">
+                            <option value = "{{check_titanic.survived}}">{{check_titanic.survived}} </option>
+                            <option value = "{{diff_survived[0]}}">{{diff_survived[0]}}</option>
+                        </select>    
+                    </td>
+                    <button type="submit" value="submit" class="on-click" style="position:relative; left:1150px; top:250px; height:40px; width:100px; font-size:larger">
+                    수정하기
+                    </button>
+                </form>
+                <form action="/edit" >
+                    <button type="submit" value="submit" class="on-click" style="position:relative; left:1200px; top:250px; height:40px; width:120px; font-size:larger">
+                    되돌아가기
+                    </button>
+                </form>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
