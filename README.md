@@ -1,5 +1,10 @@
 # Titanic_Flask_App
 
+## Web Application URL
+https://titanic-flask-vis.herokuapp.com/
+
+<br/>
+
 ## Project Information
 * Titanic 데이터를 가지고 CRUD 및 데이터 시각화 기능이 담긴 웹 어플리케이션을 구현했습니다.
 * Flask 로 기능 구현을 했고 Heroku를 통해 배포를 했습니다.
